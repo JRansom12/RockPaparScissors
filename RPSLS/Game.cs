@@ -9,24 +9,39 @@ namespace RPSLS
     class Game
     {
         // member variables
-        public Player player1;
-        public Player player2;
-        public Hand hand1;
-        public Hand hand2;
-        public int winThreshold;
+        Player player1;
+        Player player2;
 
         // constructor
-        public Game()
-        {
-            player1 = new Player(1);
-            player2 = new Player(2);
-            hand1 = new Hand("HandChoice");
-            hand2 = new Hand("HandChoice");
-            winThreshold = 2;
-        }
 
 
         // member methods
-
+        private int GetNumberOfPlayers()
+        {
+            Console.WriteLine("How many players?");
+            int numberOfPlayers = int.Parse(Console.ReadLine());
+            return numberOfPlayers;
+        }
+        private void SetUpPlayers(int numberOfPlayers)
+        {
+            if(numberOfPlayers == 1)
+            {
+                player1 = new Human();
+                player2 = new CPU();
+            }
+            else
+            {
+                player1 = new Human();
+                player2 = new Human();
+            }
+        }
+        public void RunGame()  //Runs each of the methods for the algorithm
+        {
+            int numberOfPlayers = GetNumberOfPlayers();
+            SetUpPlayers(numberOfPlayers);
+            //While loop here
+            player1.ChooseGesture();
+            player2.ChooseGesture();
+        }
     }
 }

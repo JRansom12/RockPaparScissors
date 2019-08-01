@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RPSLS
 {
-    public class AI
+    public class CPU : Player
     {
         // member variables
 
@@ -15,5 +15,13 @@ namespace RPSLS
 
 
         // member methods
+        public override void ChooseGesture()
+        {
+            //Hint Random class in C#
+        }
+        public override void ChooseName()
+        {
+            
+        }
     }
 }
