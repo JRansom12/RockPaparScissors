@@ -9,19 +9,28 @@ namespace RPSLS
     public class CPU : Player
     {
         // member variables
+        public Random rng;
 
 
-        // constructor
+        // constructor //ctor tab tab
+
 
 
         // member methods
-        public override void ChooseGesture()
+        public int GenerateNumber()
         {
-            //Hint Random class in C#
+            int generatedNumber = rng.Next(1, 6);
+            return generatedNumber;
         }
-        public override void ChooseName()
+        public override string ChooseGesture()
         {
-            
+            gesture = gestureList[GenerateNumber()];
+            return gesture;
+        }
+        public override string ChooseName()
+        {
+            name = "Computer";
+            return name;
         }
     }
 }

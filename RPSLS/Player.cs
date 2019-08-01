@@ -12,12 +12,21 @@ namespace RPSLS
         public string gesture;
         public int score;
         public string name;
+        public List<string> gestureList;
 
         // constructor
-
+        public Player()
+        {
+            gestureList = new List<string>();
+            gestureList.Add("rock");
+            gestureList.Add("paper");
+            gestureList.Add("scissors");
+            gestureList.Add("lizard");
+            gestureList.Add("spock");
+        }
 
         // member methods
-        public abstract void ChooseGesture();
-        public abstract void ChooseName();
+        public abstract string ChooseGesture();
+        public abstract string ChooseName();
     }
 }

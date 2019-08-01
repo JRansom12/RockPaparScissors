@@ -11,19 +11,21 @@ namespace RPSLS
         // member variables
 
 
-        // constructor
+        // constructorn
 
 
         // member methods
-        public override void ChooseGesture()
+        public override string ChooseGesture()
         {
             Console.WriteLine("Choose a gesture");
             gesture = Console.ReadLine();
+            return gesture;
         }
-        public override void ChooseName()
+        public override string ChooseName()
         {
             Console.WriteLine("Choose name");
             name = Console.ReadLine();
+            return name;
         }
     }
 }
