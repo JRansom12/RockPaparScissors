@@ -22,11 +22,12 @@ namespace RPSLS
         // member methods
         private void DisplayRules()
         {
-            Console.WriteLine("Rock Paper Scissors Lizard Spock\n", "The game of Rock Paper Scissors with additional choices!\n");
+            Console.WriteLine("Rock Paper Scissors Lizard Spock\nThe game of Rock Paper Scissors with additional choices!\nFirst to score " + scoreThreshold + " wins!\nHere are the results for each gesture:\n");
+            Console.WriteLine("Rock crushes Scissors\nScissors cuts Paper\nPaper covers Rock\nRock crushes Lizard\nLizard poisons Spock\nSpock smashes Scissors\nScissors decapitates Lizard\nLizard eats Paper\nPaper disproves Spock\nSpock vaporizes Rock\n");
         }
         private int GetNumberOfPlayers()
         {
-            Console.WriteLine("How many players?");
+            Console.WriteLine("How many players? Enter 1 or 2");
             int numberOfPlayers = int.Parse(Console.ReadLine());
             return numberOfPlayers;
         }
@@ -148,26 +149,26 @@ namespace RPSLS
             }
             else if (player1.gesture == player2.gesture)
             {
-                Console.WriteLine("Bazinga! Redo round.");
+                Console.WriteLine("Bazinga! You've tied. round.");
             }
             else
             {
                 Console.WriteLine("Enter an allowed hand gesture.");
-            }
-                
+            }                
         }
 
-        public void DisplayWinner()
+        private void DisplayWinner()
         {
             if (player1.score == scoreThreshold)
             {
                 Console.WriteLine(player1.name + " won the game!\n");
+                Console.ReadLine();
             }
             else
             {
                 Console.WriteLine(player2.name + " won the game!\n");
+                Console.ReadLine();
             }
-            Console.WriteLine("Game over!");
         }
 
         public void RunGame()  //Runs each of the methods for the algorithm
@@ -184,7 +185,6 @@ namespace RPSLS
                 CompareGestures();
                 Console.WriteLine("Current score: " + player1.score + "-" + player2.score + "\n");
             }
-
             DisplayWinner();
         }
     }

@@ -15,22 +15,23 @@ namespace RPSLS
         // constructor //ctor tab tab
 
 
-
         // member methods
-        public int GenerateNumber()
-        {
-            int generatedNumber = rng.Next(1, 6);
-            return generatedNumber;
-        }
         public override string ChooseGesture()
         {
-            gesture = gestureList[GenerateNumber()];
+
+
             return gesture;
         }
         public override string ChooseName()
         {
-            name = "Computer";
+            Console.WriteLine("Choose computer's name");
+            name = Console.ReadLine();
             return name;
         }
-    }
+        public int GenerateNumber()
+        {
+            int generatedNumber = rng.Next(0, 5);
+            return generatedNumber;
+        }
+}
 }
