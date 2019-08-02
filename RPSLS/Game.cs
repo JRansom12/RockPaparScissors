@@ -27,9 +27,24 @@ namespace RPSLS
         }
         private int GetNumberOfPlayers()
         {
-            Console.WriteLine("How many carbon based lifeforms? Enter 1 or 2");
+            try
+            {
+                Console.WriteLine("How many carbon based lifeforms? Enter 1 or 2");
                 int numberOfPlayers = int.Parse(Console.ReadLine());
-                return numberOfPlayers;
+                if (numberOfPlayers == 1 || numberOfPlayers == 2)
+                {
+                    return numberOfPlayers;
+                }
+                else
+                {
+                   return GetNumberOfPlayers();
+                }
+            }
+            catch (FormatException)
+            {
+                return GetNumberOfPlayers();
+            }
+
         }
         private void SetUpPlayers(int numberOfPlayers)
         {
@@ -168,12 +183,16 @@ namespace RPSLS
             if (player1.score == scoreThreshold)
             {
                 Console.WriteLine(player1.name + " won the game!\n");
-                Console.ReadLine();
             }
             else
             {
-                Console.WriteLine(player2.name + " won the game!\n");
-                Console.ReadLine();         
+                Console.WriteLine(player2.name + " won the game!\n");         
+            }
+            Console.WriteLine("To play again enter: Big Bang");
+            string playAgain = Console.ReadLine().ToLower().Replace(" ",string.Empty);
+            if(playAgain == "bigbang")
+            {
+                RunGame();
             }
         }
 
@@ -194,7 +213,6 @@ namespace RPSLS
                 Console.WriteLine("Current score: " + player1.name + " " + player1.score + " - " + player2.name + " " + player2.score + "\n");
             }
             DisplayWinner();
-            Console.ReadLine();
         }
     }
 }
