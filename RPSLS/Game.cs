@@ -12,6 +12,7 @@ namespace RPSLS
         public Player player1;
         public Player player2;
         public int scoreThreshold;
+        public int numberOfPlayers;
         // constructor ctor
         public Game()
         {
@@ -27,26 +28,15 @@ namespace RPSLS
         }
         private int GetNumberOfPlayers()
         {
-            try
+            Console.WriteLine("How many carbon based lifeforms? Enter 1 or 2");
+            while (int.TryParse(Console.ReadLine(), out numberOfPlayers) && numberOfPlayers > 2 || numberOfPlayers < 1)
             {
-                Console.WriteLine("How many carbon based lifeforms? Enter 1 or 2");
-                int numberOfPlayers = int.Parse(Console.ReadLine());
-                if (numberOfPlayers == 1 || numberOfPlayers == 2)
-                {
-                    return numberOfPlayers;
-                }
-                else
-                {
-                   return GetNumberOfPlayers();
-                }
+                Console.WriteLine("Must enter 1 or 2.");
             }
-            catch (FormatException)
-            {
-                return GetNumberOfPlayers();
-            }
-
+            return numberOfPlayers;
         }
-        private void SetUpPlayers(int numberOfPlayers)
+
+        public void SetUpPlayers(int numberOfPlayers)
         {
             if(numberOfPlayers == 1)
             {
@@ -58,6 +48,7 @@ namespace RPSLS
                 player1 = new Human();
                 player2 = new Human();
             }
+            //ai vs ai?
 
         }
         public static void ClearLine()
