@@ -11,7 +11,7 @@ namespace RPSLS
         // member variables
 
 
-            // constructor //ctor tab tab
+        // constructor //ctor tab tab
 
 
         // member methods

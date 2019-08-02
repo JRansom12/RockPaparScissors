@@ -27,9 +27,9 @@ namespace RPSLS
         }
         private int GetNumberOfPlayers()
         {
-            Console.WriteLine("How many players? Enter 1 or 2");
-            int numberOfPlayers = int.Parse(Console.ReadLine());
-            return numberOfPlayers;
+            Console.WriteLine("How many carbon based lifeforms? Enter 1 or 2");
+                int numberOfPlayers = int.Parse(Console.ReadLine());
+                return numberOfPlayers;
         }
         private void SetUpPlayers(int numberOfPlayers)
         {
@@ -44,6 +44,12 @@ namespace RPSLS
                 player2 = new Human();
             }
 
+        }
+        public static void ClearLine()
+        {
+            Console.SetCursorPosition(0, Console.CursorTop - 1);
+            Console.Write(new string(' ', Console.WindowWidth));
+            Console.SetCursorPosition(0, Console.CursorTop - 1);
         }
         public void CompareGestures()
         {
@@ -167,7 +173,7 @@ namespace RPSLS
             else
             {
                 Console.WriteLine(player2.name + " won the game!\n");
-                Console.ReadLine();
+                Console.ReadLine();         
             }
         }
 
@@ -181,7 +187,9 @@ namespace RPSLS
             
             while(player1.score < scoreThreshold && player2.score < scoreThreshold){
                 player1.ChooseGesture();
+                ClearLine();
                 player2.ChooseGesture();
+                ClearLine();
                 CompareGestures();
                 Console.WriteLine("Current score: " + player1.name + " " + player1.score + " - " + player2.name + " " + player2.score + "\n");
             }
