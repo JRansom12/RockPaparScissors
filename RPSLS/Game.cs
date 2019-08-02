@@ -50,7 +50,7 @@ namespace RPSLS
             if (player1.gesture == "rock" && player2.gesture == "paper")
             {
                 player2.score++;
-                Console.WriteLine("Paper covers rock. " + player1.name + " scores!");
+                Console.WriteLine("Paper covers rock. " + player2.name + " scores!");
             }
             else if (player1.gesture == "rock" && player2.gesture == "scissors")
             {
@@ -183,9 +183,10 @@ namespace RPSLS
                 player1.ChooseGesture();
                 player2.ChooseGesture();
                 CompareGestures();
-                Console.WriteLine("Current score: " + player1.score + "-" + player2.score + "\n");
+                Console.WriteLine("Current score: " + player1.name + " " + player1.score + " - " + player2.name + " " + player2.score + "\n");
             }
             DisplayWinner();
+            Console.ReadLine();
         }
     }
 }

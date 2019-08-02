@@ -9,17 +9,15 @@ namespace RPSLS
     public class CPU : Player
     {
         // member variables
-        public Random rng;
 
 
-        // constructor //ctor tab tab
+            // constructor //ctor tab tab
 
 
         // member methods
         public override string ChooseGesture()
         {
-
-
+            gesture = gestureList[GenerateNumber(1,5)];
             return gesture;
         }
         public override string ChooseName()
@@ -28,10 +26,10 @@ namespace RPSLS
             name = Console.ReadLine();
             return name;
         }
-        public int GenerateNumber()
+        public int GenerateNumber(int min, int max)
         {
-            int generatedNumber = rng.Next(0, 5);
-            return generatedNumber;
+            Random random = new Random();
+            return random.Next(min, max);
         }
-}
+    }
 }
