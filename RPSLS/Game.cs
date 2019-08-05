@@ -43,12 +43,16 @@ namespace RPSLS
                 player1 = new Human();
                 player2 = new CPU();
             }
+            //else if(numberOfPlayers == 0) //cpu vs. cpu option, change GetNumberofPlayers low limit from 1 to 0
+            //{
+            //    player1 = new CPU();
+            //    player2 = new CPU();
+            //}
             else
             {
                 player1 = new Human();
                 player2 = new Human();
             }
-            //ai vs ai?
 
         }
         public static void ClearLine()
